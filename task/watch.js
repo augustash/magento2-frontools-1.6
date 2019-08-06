@@ -15,7 +15,8 @@ module.exports = function(resolve) { // eslint-disable-line func-names
   plugins.helper.dependecyTree = require('../helper/dependency-tree-builder');
   plugins.helper.inheritance   = require('../helper/inheritance-resolver');
   plugins.helper.sass          = require('../helper/scss');
-  plugins.helper.sassLint      = require('../helper/sass-lint');
+  // sassLint helper updated from sasslint to ash-lint to apply August Ash specific rules.
+  plugins.helper.sassLint      = require('../helper/ash-lint');
   plugins.helper.svg           = require('../helper/svg');
 
   plugins.util.log(
@@ -175,14 +176,15 @@ module.exports = function(resolve) { // eslint-disable-line func-names
       }
     });
 
-    destWatcher.on('change', path => {
-      // CSS Lint
-      if (!plugins.util.env.disableLinting) {
-        if (plugins.path.extname(path) === '.css') {
-          plugins.helper.cssLint(gulp, plugins, config, name, path);
-        }
-      }
-    });
+    // Removed for application of August Ash specific stylelint rules being applied.
+    // destWatcher.on('change', path => {
+    //   // CSS Lint
+    //   if (!plugins.util.env.disableLinting) {
+    //     if (plugins.path.extname(path) === '.css') {
+    //       plugins.helper.cssLint(gulp, plugins, config, name, path);
+    //     }
+    //   }
+    // });
   });
 
   resolve();
