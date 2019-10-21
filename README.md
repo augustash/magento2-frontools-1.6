@@ -27,10 +27,11 @@ $ composer require snowdog/frontools:~1.6.0
 2. Run `yarn` or `npm install`
 3. Run `yarn add stylelint-order stylelint-scss`
 4. Decide where you want to keep your config files.
-You can store them in Frontools `config` directory or in `dev/tools/frontools/config`.
+  - You can store them in Frontools `config` directory or in `dev/tools/frontools/config`.
 There is a `gulp setup` task to copy all sample config files from the `config` to `dev/tools/frontools/config` and create a convenient symlink `tools` in the project root.
-If you want to keep config files inside frontools `config` dir, you have to handle this manually.
+  - If you want to keep config files inside frontools `config` dir, you have to handle this manually.
 5. Define your themes in `themes.json`.
+6. Update `helper/ash-lint.js` to include your theme(s) ID from `dev/tools/frontools/config/themes.json`.
 
 ## `themes.json` structure
 Check `config/themes.json.sample` to get samples.
